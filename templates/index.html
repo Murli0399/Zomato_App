@@ -3,64 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/nav.css" />
+    <link rel="stylesheet" href="/static/index.css" />
     <title>Food Ordering</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-        margin: 0;
-        padding: 0;
-      }
-      /* Navbar styles */
-      nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black;
-        color: white;
-        padding: 18px;
-        font-size: 20px;
-      }
-
-      nav ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      nav ul li {
-        display: inline-block;
-        margin: 0 10px;
-      }
-
-      nav ul li a {
-        text-decoration: none;
-        color: white;
-      }
-
-      nav ul li a:hover {
-        text-decoration: underline;
-      }
-
-      /* Table styles */
-      table {
-        margin: 20px auto;
-        border-collapse: collapse;
-        width: 60%;
-      }
-
-      thead {
-        font-size: 18px;
-        background-color: #bfbfbf;
-      }
-
-      th,
-      td {
-        padding: 10px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-      }
-    </style>
   </head>
   <body>
     <nav>
@@ -83,42 +28,6 @@
         <!-- Dishes will be dynamically added -->
       </tbody>
     </table>
-
-    <script>
-      // Helper function to create table cells
-      function createTableCell(text) {
-        const cell = document.createElement("td");
-        cell.textContent = text;
-        return cell;
-      }
-
-      // Function to load dishes from server
-      function loadDishes() {
-        fetch("http://localhost:5000/dishe")
-          .then((response) => response.json())
-          .then((data) => {
-            const tableBody = document
-              .getElementById("dishes-table")
-              .getElementsByTagName("tbody")[0];
-            tableBody.innerHTML = "";
-
-            data.forEach((dish) => {
-              const row = document.createElement("tr");
-              row.appendChild(createTableCell(dish.name));
-              row.appendChild(createTableCell(dish.price));
-              row.appendChild(
-                createTableCell(
-                  dish.availability ? "Available" : "Not Available"
-                )
-              );
-              tableBody.appendChild(row);
-            });
-          })
-          .catch((error) => console.log(error));
-      }
-
-      // Load initial data
-      loadDishes();
-    </script>
+    <script src="/static/index.js"></script>
   </body>
 </html>

@@ -3,92 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/nav.css" />
+    <link rel="stylesheet" href="/static/order.css" />
     <title>Place Order</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-        margin: 0;
-        padding: 0;
-      }
-      nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black;
-        color: white;
-        padding: 18px;
-        font-size: 20px;
-      }
-
-      nav ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      nav ul li {
-        display: inline-block;
-        margin: 0 10px;
-      }
-
-      nav ul li a {
-        text-decoration: none;
-        color: white;
-      }
-
-      nav ul li a:hover {
-        text-decoration: underline;
-      }
-      /* CSS styles for the form */
-      body {
-        font-family: Arial, sans-serif;
-      }
-
-      .container {
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-
-      h1 {
-        text-align: center;
-      }
-
-      form {
-        display: flex;
-        flex-direction: column;
-      }
-
-      label {
-        margin-top: 10px;
-      }
-
-      input[type="text"],
-      input[type="number"],
-      select {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        margin-top: 5px;
-      }
-
-      button[type="submit"] {
-        background-color: black;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-top: 10px;
-      }
-
-      button[type="submit"]:hover {
-        background-color: #45a049;
-      }
-    </style>
   </head>
   <nav>
     <ul>
@@ -113,45 +30,6 @@
         <button type="submit">Place Order</button>
       </form>
     </div>
-
-    <script>
-      const form = document.getElementById("order-form");
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        const customerName = document.getElementById("customer-name").value;
-        const dishId = parseInt(document.getElementById("dish-id").value);
-        const quantity = parseInt(document.getElementById("quantity").value);
-
-        const order = {
-          customer_name: customerName,
-          items: [
-            {
-              dish_id: dishId,
-              quantity: quantity,
-            },
-          ],
-        };
-
-        fetch("http://localhost:5000/orders", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(order),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data); // Log the response data
-            alert("Order placed successfully");
-            form.reset();
-          })
-          .catch((error) => {
-            console.error(error);
-            alert("Error placing the order");
-          });
-      });
-    </script>
+    <script src="/static/order.js"></script>
   </body>
 </html>

@@ -1,0 +1,18 @@
+ /* Table styles */
+ table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 60%;
+}
+
+thead {
+  font-size: 18px;
+  background-color: #bfbfbf;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}

@@ -82,6 +82,7 @@ const addMenuForm = document.getElementById("add-menu-form");
               loadMenu();
             } else {
               console.log(data.message);
+              loadMenu();
             }
           })
           .catch((error) => console.log(error));
@@ -138,7 +139,9 @@ const addMenuForm = document.getElementById("add-menu-form");
                       updateModal.style.display = "none"; // Close the update modal
                       loadMenu(); // Reload the menu items
                     } else {
+                      updateModal.style.display = "none"; // Close the update modal
                       console.log(data.message);
+                      loadMenu();
                     }
                   })
                   .catch((error) => console.log(error));
@@ -164,6 +167,7 @@ const addMenuForm = document.getElementById("add-menu-form");
                 loadMenu();
               } else {
                 console.log(data.message);
+                loadMenu();
               }
             })
             .catch((error) => console.log(error));

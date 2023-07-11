@@ -1,6 +1,6 @@
 // Function to fetch all orders
 function fetchOrders() {
-  fetch("http://localhost:5000/orders")
+  fetch("https://zmtapp.onrender.com/orders")
     .then((response) => response.json())
     .then((data) => {
       const tableBody = document.querySelector("tbody");

@@ -15,7 +15,7 @@ const addMenuForm = document.getElementById("add-menu-form");
 
       // Function to load menu items from server
       function loadMenu() {
-        fetch("http://localhost:5000/dishe")
+        fetch("https://zmtapp.onrender.com/dishe")
           .then((response) => response.json())
           .then((data) => {
             const tableBody = menuTable.getElementsByTagName("tbody")[0];
@@ -68,7 +68,7 @@ const addMenuForm = document.getElementById("add-menu-form");
           availability: availability,
         };
 
-        fetch("http://localhost:5000/dishes", {
+        fetch("https://zmtapp.onrender.com/dishes", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -91,7 +91,7 @@ const addMenuForm = document.getElementById("add-menu-form");
       // Function to handle opening the update form for a menu item
       function openUpdateForm(itemId) {
         // const item = getItemById(itemId);
-        fetch(`http://localhost:5000/dishes/${itemId}`, {
+        fetch(`https://zmtapp.onrender.com/dishes/${itemId}`, {
           method: "GET",
         })
           .then((response) => response.json())
@@ -125,7 +125,7 @@ const addMenuForm = document.getElementById("add-menu-form");
                 };
 
                 // Send the request to update the menu item
-                fetch(`http://localhost:5000/dishes/${itemId}`, {
+                fetch(`https://zmtapp.onrender.com/dishes/${itemId}`, {
                   method: "PUT",
                   headers: {
                     "Content-Type": "application/json",
@@ -155,7 +155,7 @@ const addMenuForm = document.getElementById("add-menu-form");
         );
 
         if (confirmation) {
-          fetch(`http://localhost:5000/dishes/${itemId}`, {
+          fetch(`https://zmtapp.onrender.com/dishes/${itemId}`, {
             method: "DELETE",
           })
             .then((response) => response.json())

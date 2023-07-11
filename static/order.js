@@ -17,7 +17,7 @@ form.addEventListener("submit", (e) => {
     ],
   };
 
-  fetch("http://localhost:5000/orders", {
+  fetch("https://zmtapp.onrender.com/orders", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

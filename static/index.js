@@ -7,7 +7,7 @@ function createTableCell(text) {
 
 // Function to load dishes from server
 function loadDishes() {
-  fetch("http://localhost:5000/dishe")
+  fetch("https://zmtapp.onrender.com/dishe")
     .then((response) => response.json())
     .then((data) => {
       const tableBody = document
